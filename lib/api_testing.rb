@@ -8,8 +8,12 @@ class TimeError
   end
   # Returns difference in seconds between server time
   # and the time on this computer
-  def error
-    return get_server_time - Time.now
+  def initialize(requester)
+    @requester = requester
+  end
+
+  def error(current_time)
+    return get_server_time - current_time
   end
 
   private
